@@ -8,8 +8,7 @@ public class Yilonmah {
         String logo = "YiLonMah";
         System.out.println("Hello! I'm " + logo);
         System.out.println("What can I do for you?");
-        // System.out.println("");
-        // System.out.println("Bye, Hope to see you again soon!");
+
         while (!line.equals("bye")) {
             line = in.nextLine();
             if (!line.equals("bye")) {
