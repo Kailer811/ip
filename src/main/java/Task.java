@@ -15,8 +15,16 @@ public class Task {
 		return this.isDone;
 	}
 
-	public void toggleIsDone() {
-		this.isDone = !this.isDone;
+	public void mark() {
+		this.isDone = true;
+		System.out.println("Okk marked as done, very naisu");
+		this.printTask();
+	}
+
+	public void unmark() {
+		this.isDone = false;
+		System.out.println("Okk marked as not done, when u gonna do it tho...");
+		this.printTask();
 	}
 
 	public void printTask() {
