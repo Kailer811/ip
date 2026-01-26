@@ -14,37 +14,37 @@ public class Yilonmah {
         while (!line.equals("bye")) {
             line = in.nextLine();
             switch (line) {
-                case "bye":
-                    System.out.println("Bai Baiii");
-                    break;
-                case "list":
-                    for (int i = 0; i < listIdx; i++) {
-                        int j = i + 1;
-                        System.out.print(j + ".");
-                        list[i].printTask();
-                    }
-                    break;
-                default:
-                    if (line.contains("unmark")) {
-                        int unmarkIdx = Integer.parseInt(line.substring(7));
-                        if (unmarkIdx > listIdx + 1) {
-                            System.out.println("we dont even have that task fam");
-                        } else {
-                            list[unmarkIdx - 1].unmark();
-                        }
-                    } else if (line.contains("mark")) {
-                        int markIdx = Integer.parseInt(line.substring(5));
-                        if (markIdx > listIdx + 1) {
-                            System.out.println("we dont even have that task fam");
-                        } else {
-                            list[markIdx - 1].mark();
-                        }
+            case "bye":
+                System.out.println("Bai Baiii");
+                break;
+            case "list":
+                for (int i = 0; i < listIdx; i++) {
+                    int j = i + 1;
+                    System.out.print(j + ".");
+                    list[i].printTask();
+                }
+                break;
+            default:
+                if (line.contains("unmark")) {
+                    int unmarkIdx = Integer.parseInt(line.substring(7));
+                    if (unmarkIdx > listIdx + 1) {
+                        System.out.println("we dont even have that task fam");
                     } else {
-                        System.out.println("added: " + line);
-                        list[listIdx] = new Task(line);
-                        listIdx++;
-                        break;
+                        list[unmarkIdx - 1].unmark();
                     }
+                } else if (line.contains("mark")) {
+                    int markIdx = Integer.parseInt(line.substring(7));
+                    if (markIdx > listIdx + 1) {
+                        System.out.println("we dont even have that task fam");
+                    } else {
+                        list[markIdx - 1].mark();
+                    }
+                } else {
+                    System.out.println("added: " + line);
+                    list[listIdx] = new Task(line);
+                    listIdx++;
+                    break;
+                }
             }
         }
     }
