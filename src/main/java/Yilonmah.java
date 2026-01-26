@@ -33,7 +33,7 @@ public class Yilonmah {
                         list[unmarkIdx - 1].unmark();
                     }
                 } else if (line.contains("mark")) {
-                    int markIdx = Integer.parseInt(line.substring(7));
+                    int markIdx = Integer.parseInt(line.substring(5));
                     if (markIdx > listIdx + 1) {
                         System.out.println("we dont even have that task fam");
                     } else {
