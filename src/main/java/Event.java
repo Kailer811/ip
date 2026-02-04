@@ -19,11 +19,11 @@ public class Event extends Deadline {
 		if (this.getIsDone()) {
 			System.out.print("[E][X] " + this.getName());
 			System.out.print(" (from: " + this.getFrom());
-			System.out.print(" to: " + this.getBy() + ")");
+			System.out.println(" to: " + this.getBy() + ")");
 		} else {
 			System.out.print("[E][ ] " + this.getName());
 			System.out.print(" (from: " + this.getFrom());
-			System.out.print(" to: " + this.getBy() + ")");
+			System.out.println(" to: " + this.getBy() + ")");
 		}
 	}
 }

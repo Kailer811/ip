@@ -19,10 +19,10 @@ public class Deadline extends Task {
     public void printTask() {
         if (this.getIsDone()) {
             System.out.print("[D][X] " + this.getName());
-            System.out.print(" (by: " + this.getBy() + " )");
+            System.out.println(" (by: " + this.getBy() + " )");
         } else {
             System.out.print("[D][ ] " + this.getName());
-            System.out.print(" (by: " + this.getBy() + ")");
+            System.out.println(" (by: " + this.getBy() + ")");
         }
     }
 }
