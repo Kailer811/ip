@@ -7,8 +7,12 @@ public class Task {
 		this.isDone = false;
 	}
 
-	public String getTask() {
+	public String getName() {
 		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public boolean getIsDone() {
