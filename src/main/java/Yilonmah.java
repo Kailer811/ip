@@ -24,7 +24,7 @@ public class Yilonmah {
                     list[i].printTask();
                 }
                 Printer.dash();
-            } else if (line.length() > 7 && line.substring(0, 6).equals("unmark")) {
+            } else if (line.length() > 7 && line.startsWith("unmark")) {
                 int unmarkIdx = Integer.parseInt(line.substring(7));
                 if (unmarkIdx > taskCount + 1) {
                     System.out.println("we dont even have that task fam");
@@ -33,7 +33,7 @@ public class Yilonmah {
                     list[unmarkIdx - 1].unmark();
                     Printer.dash();
                 }
-            } else if (line.length() > 5 && line.substring(0, 4).equals("mark")) {
+            } else if (line.length() > 5 && line.startsWith("mark")) {
                 int markIdx = Integer.parseInt(line.substring(5));
                 if (markIdx > taskCount + 1) {
                     System.out.println("we dont even have that task fam");
@@ -42,7 +42,7 @@ public class Yilonmah {
                     list[markIdx - 1].mark();
                     Printer.dash();
                 }
-            } else if (line.length() > 5 && line.substring(0, 4).equals("todo")) {
+            } else if (line.length() > 5 && line.startsWith("todo")) {
                 String desc = line.substring(5);
                 list[taskCount] = new Todo(desc);
                 Printer.taskAdded();
@@ -51,7 +51,7 @@ public class Yilonmah {
                 Printer.listCount(taskCount);
                 Printer.dash();
 
-            } else if (line.length() > 8 && line.substring(0, 8).equals("deadline")) {
+            } else if (line.length() > 8 && line.startsWith("deadline")) {
                 String desc = line.substring(9);
                 int separator = desc.indexOf("/");
                 String name = desc.substring(0, separator - 1);
@@ -62,7 +62,7 @@ public class Yilonmah {
                 taskCount++;
                 Printer.listCount(taskCount);
                 Printer.dash();
-            } else if (line.length() > 6 && line.substring(0, 5).equals("event")) {
+            } else if (line.length() > 6 && line.startsWith("event")) {
                 String desc = line.substring(6);
                 int separator1 = desc.indexOf("/");
                 int separator2 = desc.indexOf("/", separator1 + 1);
