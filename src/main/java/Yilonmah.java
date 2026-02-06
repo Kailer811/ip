@@ -5,7 +5,7 @@ public class Yilonmah {
         Scanner in = new Scanner(System.in);
         String line = "";
         Task[] list = new Task[100];
-        int listIdx = 0;
+        int taskCount = 0;
 
         Printer.dash();
         String logo = "YiLonMah";
@@ -18,7 +18,7 @@ public class Yilonmah {
             if (line.equals("bye")) {
                 System.out.println("Bai Baiii");
             } else if (line.equals("list")) {
-                for (int i = 0; i < listIdx; i++) {
+                for (int i = 0; i < taskCount; i++) {
                     int j = i + 1;
                     System.out.print(j + ".");
                     list[i].printTask();
@@ -26,7 +26,7 @@ public class Yilonmah {
                 Printer.dash();
             } else if (line.length() > 7 && line.substring(0, 6).equals("unmark")) {
                 int unmarkIdx = Integer.parseInt(line.substring(7));
-                if (unmarkIdx > listIdx + 1) {
+                if (unmarkIdx > taskCount + 1) {
                     System.out.println("we dont even have that task fam");
                     Printer.dash();
                 } else {
@@ -35,7 +35,7 @@ public class Yilonmah {
                 }
             } else if (line.length() > 5 && line.substring(0, 4).equals("mark")) {
                 int markIdx = Integer.parseInt(line.substring(5));
-                if (markIdx > listIdx + 1) {
+                if (markIdx > taskCount + 1) {
                     System.out.println("we dont even have that task fam");
                     Printer.dash();
                 } else {
@@ -44,11 +44,11 @@ public class Yilonmah {
                 }
             } else if (line.length() > 5 && line.substring(0, 4).equals("todo")) {
                 String desc = line.substring(5);
-                list[listIdx] = new Todo(desc);
+                list[taskCount] = new Todo(desc);
                 Printer.taskAdded();
-                list[listIdx].printTask();
-                listIdx++;
-                Printer.listCount(listIdx);
+                list[taskCount].printTask();
+                taskCount++;
+                Printer.listCount(taskCount);
                 Printer.dash();
 
             } else if (line.length() > 8 && line.substring(0, 8).equals("deadline")) {
@@ -56,11 +56,11 @@ public class Yilonmah {
                 int separator = desc.indexOf("/");
                 String name = desc.substring(0, separator - 1);
                 String date = desc.substring(separator + 4);
-                list[listIdx] = new Deadline(name, date);
+                list[taskCount] = new Deadline(name, date);
                 Printer.taskAdded();
-                list[listIdx].printTask();
-                listIdx++;
-                Printer.listCount(listIdx);
+                list[taskCount].printTask();
+                taskCount++;
+                Printer.listCount(taskCount);
                 Printer.dash();
             } else if (line.length() > 6 && line.substring(0, 5).equals("event")) {
                 String desc = line.substring(6);
@@ -69,11 +69,11 @@ public class Yilonmah {
                 String name = desc.substring(0, separator1 - 1);
                 String from = desc.substring(separator1 + 6, separator2 - 1);
                 String by = desc.substring(separator2 + 4);
-                list[listIdx] = new Event(name, from, by);
+                list[taskCount] = new Event(name, from, by);
                 Printer.taskAdded();
-                list[listIdx].printTask();
-                listIdx++;
-                Printer.listCount(listIdx);
+                list[taskCount].printTask();
+                taskCount++;
+                Printer.listCount(taskCount);
                 Printer.dash();
             } else {
                 System.out.println("idk watchu sayin fam.");
