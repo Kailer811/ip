@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import print.Printer;
 
 public class Yilonmah {
     public static void main(String[] args) {
@@ -30,8 +31,7 @@ public class Yilonmah {
                 } else if (line.length() > 7 && line.startsWith("unmark")) {
                     int unmarkIdx = Integer.parseInt(line.substring(7));
                     if (unmarkIdx > taskCount + 1) {
-                        System.out.println("we dont even have that task fam");
-                        Printer.dash();
+                        throw new OutOfBounds();
                     } else {
                         list[unmarkIdx - 1].unmark();
                         Printer.dash();
@@ -39,8 +39,7 @@ public class Yilonmah {
                 } else if (line.length() > 5 && line.startsWith("mark")) {
                     int markIdx = Integer.parseInt(line.substring(5));
                     if (markIdx > taskCount + 1) {
-                        System.out.println("we dont even have that task fam");
-                        Printer.dash();
+                        throw new OutOfBounds();
                     } else {
                         list[markIdx - 1].mark();
                         Printer.dash();
@@ -53,7 +52,6 @@ public class Yilonmah {
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();
-
                 } else if (line.length() > 8 && line.startsWith("deadline")) {
                     String desc = line.substring(9);
                     int separator = desc.indexOf("/");
