@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+
 import print.Printer;
 
 public class Yilonmah {
@@ -7,13 +9,7 @@ public class Yilonmah {
         String line = "";
         Task[] list = new Task[100];
         int taskCount = 0;
-
-        Printer.dash();
-        String logo = "YiLonMah";
-        System.out.println("Hello! I'm " + logo);
-        System.out.println("What can I do for you?");
-        Printer.dash();
-
+        Printer.opening();
         while (!line.equals("bye")) {
             line = in.nextLine();
             try {

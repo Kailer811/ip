@@ -12,4 +12,12 @@ public class Printer {
 	public static void listCount(int count) {
 		System.out.println("You now have " + count + " tasks, upz lah");
 	}
+
+	public static void opening() {
+        Printer.dash();
+        String logo = "YiLonMah";
+        System.out.println("Hello! I'm " + logo);
+        System.out.println("What can I do for you?");
+        Printer.dash();
+	}
 }
