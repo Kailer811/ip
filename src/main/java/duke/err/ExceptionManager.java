@@ -1,3 +1,5 @@
+package err;
+
 import print.Printer;
 
 public class ExceptionManager {
