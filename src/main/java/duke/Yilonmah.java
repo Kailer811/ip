@@ -1,6 +1,5 @@
 import java.util.Scanner;
 
-
 import print.Printer;
 
 public class Yilonmah {
@@ -14,7 +13,7 @@ public class Yilonmah {
             line = in.nextLine();
             try {
                 if (line.equals("")) {
-                    throw new NoCommand();
+                    throw new YilonmahExceptions.NoCommand();
                 } else if (line.equals("bye")) {
                     System.out.println("Bai Baiii");
                 } else if (line.equals("list")) {
@@ -27,7 +26,7 @@ public class Yilonmah {
                 } else if (line.length() > 7 && line.startsWith("unmark")) {
                     int unmarkIdx = Integer.parseInt(line.substring(7));
                     if (unmarkIdx > taskCount + 1) {
-                        throw new OutOfBounds();
+                        throw new YilonmahExceptions.OutOfBounds();
                     } else {
                         list[unmarkIdx - 1].unmark();
                         Printer.dash();
@@ -35,7 +34,7 @@ public class Yilonmah {
                 } else if (line.length() > 5 && line.startsWith("mark")) {
                     int markIdx = Integer.parseInt(line.substring(5));
                     if (markIdx > taskCount + 1) {
-                        throw new OutOfBounds();
+                        throw new YilonmahExceptions.OutOfBounds();
                     } else {
                         list[markIdx - 1].mark();
                         Printer.dash();
@@ -73,7 +72,7 @@ public class Yilonmah {
                     Printer.listCount(taskCount);
                     Printer.dash();
                 } else {
-                    throw new WrongCommand();
+                    throw new YilonmahExceptions.WrongCommand();
                 }
             } catch (YilonmahExceptions e) {
                 ExceptionManager.handleException(e);

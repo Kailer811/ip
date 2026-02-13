@@ -1,11 +1,17 @@
+
 public class YilonmahExceptions extends Exception {
-}
+	public static class NoCommand extends YilonmahExceptions {
+		public NoCommand() {
+		}
+	}
 
-class NoCommand extends YilonmahExceptions {
-}
+	public static class WrongCommand extends YilonmahExceptions {
+		public WrongCommand() {
+		}
+	}
 
-class WrongCommand extends YilonmahExceptions {
-}
-
-class OutOfBounds extends YilonmahExceptions {
+	public static class OutOfBounds extends YilonmahExceptions {
+		public OutOfBounds() {
+		}
+	}
 }
