@@ -1,8 +1,11 @@
-import err.ExceptionManager;
-import err.YilonmahExceptions;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
+
+import err.ExceptionManager;
+import err.YilonmahExceptions;
 import print.Printer;
+import saves.Read;
 import saves.Write;
 import task.Deadline;
 import task.Event;
@@ -14,8 +17,14 @@ public class Yilonmah {
         Scanner in = new Scanner(System.in);
         String line = "";
         Task[] list = new Task[100];
-        int taskCount = 0;
         Printer.opening();
+        try {
+            System.out.println("tryinggg to rememberr");
+            list = Read.initList();
+        } catch (FileNotFoundException e) {
+            System.out.println("file save not found, making a brand new save");
+        }
+        int taskCount = 0;
         while (!line.equals("bye")) {
             line = in.nextLine();
             try {

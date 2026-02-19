@@ -13,6 +13,7 @@ public class Write {
 	public static void appendToFile(String textToAppend) throws IOException {
 		FileWriter fw = new FileWriter("./data/yilonmah.txt", true);
 		fw.write(textToAppend);
+		fw.write("\n");
 		fw.close();
 	}
 
