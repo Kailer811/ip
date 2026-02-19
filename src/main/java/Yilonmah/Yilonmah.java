@@ -22,7 +22,7 @@ public class Yilonmah {
                     for (int i = 0; i < taskCount; i++) {
                         int j = i + 1;
                         System.out.print(j + ".");
-                        list[i].printTask();
+                        System.out.println(list[i].printTask());
                     }
                     Printer.dash();
                 } else if (line.length() > 7 && line.startsWith("unmark")) {
@@ -45,7 +45,7 @@ public class Yilonmah {
                     String desc = line.substring(5);
                     list[taskCount] = new Todo(desc);
                     Printer.taskAdded();
-                    list[taskCount].printTask();
+                    System.out.println(list[taskCount].printTask());
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();
@@ -56,7 +56,7 @@ public class Yilonmah {
                     String date = desc.substring(separator + 4);
                     list[taskCount] = new Deadline(name, date);
                     Printer.taskAdded();
-                    list[taskCount].printTask();
+                    System.out.println(list[taskCount].printTask());
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();
@@ -69,7 +69,7 @@ public class Yilonmah {
                     String by = desc.substring(separator2 + 4);
                     list[taskCount] = new Event(name, from, by);
                     Printer.taskAdded();
-                    list[taskCount].printTask();
+                    System.out.println(list[taskCount].printTask());
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();

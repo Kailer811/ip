@@ -5,11 +5,10 @@ public class Todo extends Task {
     }
 
     @Override
-    public void printTask() {
+    public String printTask() {
         if (this.getIsDone()) {
-            System.out.println("[T][X] " + this.getName());
-        } else {
-            System.out.println("[T][ ] " + this.getName());
+            return ("[T][X] " + this.getName());
         }
+        return ("[T][ ] " + this.getName());
     }
 }

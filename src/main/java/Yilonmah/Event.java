@@ -15,15 +15,16 @@ public class Event extends Deadline {
 	}
 
 	@Override
-	public void printTask() {
+	public String printTask() {
 		if (this.getIsDone()) {
-			System.out.print("[E][X] " + this.getName());
-			System.out.print(" (from: " + this.getFrom());
-			System.out.println(" to: " + this.getBy() + ")");
-		} else {
-			System.out.print("[E][ ] " + this.getName());
-			System.out.print(" (from: " + this.getFrom());
-			System.out.println(" to: " + this.getBy() + ")");
+			String out = ("[E][X] " + this.getName());
+			out += (" (from: " + this.getFrom());
+			out += (" to: " + this.getBy() + ")");
+			return out;
 		}
+		String out = ("[E][ ] " + this.getName());
+		out += (" (from: " + this.getFrom());
+		out += (" to: " + this.getBy() + ")");
+		return out;
 	}
 }
