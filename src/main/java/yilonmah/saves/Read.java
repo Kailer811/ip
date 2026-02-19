@@ -1,5 +1,6 @@
 package saves;
 
+import err.YilonmahExceptions;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -38,6 +39,8 @@ public class Read {
 				String by = desc.substring(separator2 + 4);
 				list.add(new Event(name, from, by));
 				break;
+			default:
+				throw new YilonmahExceptions.FileCorrupted();
 			}
 		}
 		return list;

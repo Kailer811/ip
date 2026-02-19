@@ -15,4 +15,9 @@ public class YilonmahExceptions extends Exception {
 		public OutOfBounds() {
 		}
 	}
+
+	public static class FileCorrupted extends YilonmahExceptions {
+		public FileCorrupted() {
+		}
+	}
 }
