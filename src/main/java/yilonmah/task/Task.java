@@ -1,3 +1,5 @@
+package task;
+
 public class Task {
 	private String name;
 	private boolean isDone;
@@ -31,11 +33,10 @@ public class Task {
 		this.printTask();
 	}
 
-	public void printTask() {
+	public String printTask() {
 		if (this.getIsDone()) {
-			System.out.println("[X] " + this.name);
-		} else {
-			System.out.println("[ ] " + this.name);
+			return ("[X] " + this.name);
 		}
+		return ("[ ] " + this.name);
 	}
 }

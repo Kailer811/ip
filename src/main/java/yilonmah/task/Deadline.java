@@ -1,3 +1,5 @@
+package task;
+
 public class Deadline extends Task {
 
     protected String by;
@@ -16,13 +18,14 @@ public class Deadline extends Task {
     }
 
     @Override
-    public void printTask() {
+    public String printTask() {
         if (this.getIsDone()) {
-            System.out.print("[D][X] " + this.getName());
-            System.out.println(" (by: " + this.getBy() + " )");
-        } else {
-            System.out.print("[D][ ] " + this.getName());
-            System.out.println(" (by: " + this.getBy() + ")");
+            String out = ("[D][X] " + this.getName());
+            out += (" (by: " + this.getBy() + " )");
+            return out;
         }
+        String out = ("[D][ ] " + this.getName());
+        out += (" (by: " + this.getBy() + ")");
+        return out;
     }
 }
