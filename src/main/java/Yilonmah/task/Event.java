@@ -1,3 +1,5 @@
+package task;
+
 public class Event extends Deadline {
 	protected String from;
 

@@ -1,8 +1,13 @@
-import java.util.Scanner;
-
 import err.ExceptionManager;
 import err.YilonmahExceptions;
+import java.io.IOException;
+import java.util.Scanner;
 import print.Printer;
+import saves.Write;
+import task.Deadline;
+import task.Event;
+import task.Task;
+import task.Todo;
 
 public class Yilonmah {
     public static void main(String[] args) {
@@ -31,6 +36,13 @@ public class Yilonmah {
                         throw new YilonmahExceptions.OutOfBounds();
                     } else {
                         list[unmarkIdx - 1].unmark();
+                        for (int i = 0; i < taskCount; i++) {
+                            try {
+                                Write.writeToFile(list[i].printTask());
+                            } catch (IOException e) {
+                                System.out.println("ruh roh riting idnt rork");
+                            }
+                        }
                         Printer.dash();
                     }
                 } else if (line.length() > 5 && line.startsWith("mark")) {
@@ -39,6 +51,13 @@ public class Yilonmah {
                         throw new YilonmahExceptions.OutOfBounds();
                     } else {
                         list[markIdx - 1].mark();
+                        for (int i = 0; i < taskCount; i++) {
+                            try {
+                                Write.writeToFile(list[i].printTask());
+                            } catch (IOException e) {
+                                System.out.println("ruh roh riting idnt rork");
+                            }
+                        }
                         Printer.dash();
                     }
                 } else if (line.length() > 5 && line.startsWith("todo")) {
@@ -46,6 +65,11 @@ public class Yilonmah {
                     list[taskCount] = new Todo(desc);
                     Printer.taskAdded();
                     System.out.println(list[taskCount].printTask());
+                    try {
+                        Write.appendToFile(list[taskCount].printTask());
+                    } catch (IOException e) {
+                        System.out.println("ruh roh someing idnt rork");
+                    }
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();
@@ -57,6 +81,11 @@ public class Yilonmah {
                     list[taskCount] = new Deadline(name, date);
                     Printer.taskAdded();
                     System.out.println(list[taskCount].printTask());
+                    try {
+                        Write.appendToFile(list[taskCount].printTask());
+                    } catch (IOException e) {
+                        System.out.println("ruh roh someing idnt rork");
+                    }
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();
@@ -70,6 +99,11 @@ public class Yilonmah {
                     list[taskCount] = new Event(name, from, by);
                     Printer.taskAdded();
                     System.out.println(list[taskCount].printTask());
+                    try {
+                        Write.appendToFile(list[taskCount].printTask());
+                    } catch (IOException e) {
+                        System.out.println("ruh roh someing idnt rork");
+                    }
                     taskCount++;
                     Printer.listCount(taskCount);
                     Printer.dash();
