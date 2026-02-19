@@ -11,6 +11,8 @@ public class ExceptionManager {
 			System.out.println("ayyo idk what this command is fam");
 		} else if (e instanceof YilonmahExceptions.OutOfBounds) {
 			System.out.println("there isnt this task fam");
+		} else if (e instanceof YilonmahExceptions.FileCorrupted) {
+			System.out.println("save file is corrupted, pls fix it for me tq");
 		}
 		Printer.dash();
 	}

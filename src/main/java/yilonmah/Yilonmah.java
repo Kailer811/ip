@@ -1,9 +1,10 @@
-import err.ExceptionManager;
-import err.YilonmahExceptions;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import err.ExceptionManager;
+import err.YilonmahExceptions;
 import print.Printer;
 import saves.Read;
 import saves.Write;
@@ -24,9 +25,8 @@ public class Yilonmah {
             System.out.println("I REMEMBER EVERYTHINGG");
         } catch (FileNotFoundException e) {
             System.out.println("file save not found, making a brand new save");
-        } catch (YilonmahExceptions e) {
-            ExceptionManager.handleException(e);
         }
+        Printer.dash();
         while (!line.equals("bye")) {
             line = in.nextLine();
             try {
