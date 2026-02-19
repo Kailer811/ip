@@ -69,6 +69,16 @@ public class Yilonmah {
                         }
                         Printer.dash();
                     }
+                } else if (line.length() > 7 && line.startsWith("delete")) {
+                    int deleteIdx = Integer.parseInt(line.substring(7));
+                    if (deleteIdx > list.size() + 1) {
+                        throw new YilonmahExceptions.OutOfBounds();
+                    } else {
+                        System.out.print("alrightyy deleting: ");
+                        System.out.println(list.get(deleteIdx - 1).printTask());
+                        list.remove(deleteIdx - 1);
+                    }
+                    Printer.dash();
                 } else if (line.length() > 5 && line.startsWith("todo")) {
                     String desc = line.substring(5);
                     list.add(new Todo(desc));

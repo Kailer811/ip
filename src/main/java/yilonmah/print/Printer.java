@@ -14,10 +14,10 @@ public class Printer {
 	}
 
 	public static void opening() {
-        Printer.dash();
-        String logo = "YiLonMah";
-        System.out.println("Hello! I'm " + logo);
-        System.out.println("What can I do for you?");
-        Printer.dash();
+		Printer.dash();
+		String logo = "YiLonMah";
+		System.out.println("Hello! I'm " + logo);
+		System.out.println("What can I do for you?");
+		Printer.dash();
 	}
 }
