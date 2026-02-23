@@ -1,6 +1,6 @@
-package err;
+package yilonmah.err;
 
-import print.Printer;
+import yilonmah.print.Printer;
 
 public class ExceptionManager {
 	public static void handleException(YilonmahExceptions e) {

@@ -1,4 +1,4 @@
-package print;
+package yilonmah.print;
 
 public class Printer {
 	public static void dash() {

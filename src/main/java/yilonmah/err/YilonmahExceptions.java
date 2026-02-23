@@ -1,4 +1,4 @@
-package err;
+package yilonmah.err;
 
 public class YilonmahExceptions extends Exception {
 	public static class NoCommand extends YilonmahExceptions {
