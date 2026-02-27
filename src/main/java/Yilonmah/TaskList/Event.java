@@ -1,4 +1,4 @@
-package yilonmah.task;
+package Yilonmah.TaskList;
 
 public class Event extends Deadline {
 	protected String from;

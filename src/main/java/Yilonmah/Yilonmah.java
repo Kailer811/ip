@@ -1,19 +1,19 @@
-package yilonmah;
+package Yilonmah;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import yilonmah.err.ExceptionManager;
-import yilonmah.err.YilonmahExceptions;
-import yilonmah.print.Printer;
-import yilonmah.saves.Read;
-import yilonmah.saves.Write;
-import yilonmah.task.Event;
-import yilonmah.task.Deadline;
-import yilonmah.task.Task;
-import yilonmah.task.Todo;
+import Yilonmah.err.ExceptionManager;
+import Yilonmah.err.YilonmahExceptions;
+import Yilonmah.Print.Printer;
+import Yilonmah.Storage.Read;
+import Yilonmah.Storage.Write;
+import Yilonmah.TaskList.Event;
+import Yilonmah.TaskList.Deadline;
+import Yilonmah.TaskList.Task;
+import Yilonmah.TaskList.Todo;
 
 public class Yilonmah {
     public static void main(String[] args) {
@@ -22,9 +22,9 @@ public class Yilonmah {
         ArrayList<Task> list = new ArrayList<>();
         Printer.opening();
         try {
-            System.out.println("tryinggg to rememberr");
+            Printer.loadingSave();
             list = Read.initList();
-            System.out.println("I REMEMBER EVERYTHINGG");
+            Printer.saveLoaded();
         } catch (FileNotFoundException e) {
             System.out.println("file save not found, making a brand new save");
         }

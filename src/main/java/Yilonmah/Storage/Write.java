@@ -1,4 +1,4 @@
-package yilonmah.saves;
+package Yilonmah.Storage;
 
 import java.io.FileWriter;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package yilonmah.task;
+package Yilonmah.TaskList;
 
 public class Task {
 	private String name;

@@ -1,4 +1,4 @@
-package yilonmah.print;
+package Yilonmah.Print;
 
 public class Printer {
 	public static void dash() {
@@ -19,5 +19,12 @@ public class Printer {
 		System.out.println("Hello! I'm " + logo);
 		System.out.println("What can I do for you?");
 		Printer.dash();
+	}
+	public static void loadingSave() {
+		System.out.println("tryinggg to rememberr");
+	}
+
+	public static void saveLoaded() {
+		System.out.println("I REMEMBER EVERYTHINGG");
 	}
 }
