@@ -1,23 +1,29 @@
 package Yilonmah.err;
 
 public class YilonmahExceptions extends Exception {
-	public static class NoCommand extends YilonmahExceptions {
-		public NoCommand() {
-		}
-	}
 
-	public static class WrongCommand extends YilonmahExceptions {
-		public WrongCommand() {
-		}
-	}
+    public static class NoCommand extends YilonmahExceptions {
+        public NoCommand() {
+        }
+    }
 
-	public static class OutOfBounds extends YilonmahExceptions {
-		public OutOfBounds() {
-		}
-	}
+    public static class WrongCommand extends YilonmahExceptions {
+        public WrongCommand() {
+        }
+    }
 
-	public static class FileCorrupted extends YilonmahExceptions {
-		public FileCorrupted() {
-		}
-	}
+    public static class OutOfBounds extends YilonmahExceptions {
+        public OutOfBounds() {
+        }
+    }
+
+    public static class FileCorrupted extends YilonmahExceptions {
+        public FileCorrupted() {
+        }
+    }
+
+    public static class MissingDescription extends YilonmahExceptions {
+        public MissingDescription() {
+        }
+    }
 }

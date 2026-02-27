@@ -39,15 +39,15 @@ public class Yilonmah {
                     System.out.println("Bai Baiii");
                 } else if (line.equals("list")) {
                     Parser.list(tasks);
-                } else if (line.length() >= 7 && line.startsWith("unmark")) {
+                } else if (line.length() > 7 && line.startsWith("unmark")) {
                     Parser.unmark(tasks, line);
                 } else if (line.length() > 5 && line.startsWith("mark")) {
                     Parser.mark(tasks, line);
                 } else if (line.length() > 7 && line.startsWith("delete")) {
                     Parser.mark(tasks, line);
-                } else if (line.length() > 5 && line.startsWith("todo")) {
+                } else if (line.startsWith("todo")) {
                     Parser.todo(tasks, line);
-                } else if (line.length() > 8 && line.startsWith("deadline")) {
+                } else if (line.length() > 9 && line.startsWith("deadline")) {
                     Parser.deadline(tasks, line);
                 } else if (line.length() > 6 && line.startsWith("event")) {
                     Parser.event(tasks, line);

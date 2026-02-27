@@ -11,14 +11,17 @@ import Yilonmah.TaskList.Todo;
 import Yilonmah.err.YilonmahExceptions;
 
 public class Parser {
-    public static void todo(TaskList tasks, String line) {
+    public static void todo(TaskList tasks, String line) throws YilonmahExceptions.MissingDescription {
+        if (line.length() < 6) {
+            throw new YilonmahExceptions.MissingDescription();
+        }
         String desc = line.substring(5);
         tasks.add(new Todo(desc));
         Printer.taskAdded();
         System.out.println(tasks.get(tasks.size() - 1).printTask());
-        Printer.taskCount(tasks.size()); //CHANGE
+        Printer.taskCount(tasks.size());
         try {
-            int listSize = tasks.size(); //CHANGE
+            int listSize = tasks.size();
             Write.appendToFile(tasks.get(listSize - 1).printTask());
         } catch (IOException e) {
             System.out.println("ruh roh someing idnt rork");
@@ -29,6 +32,8 @@ public class Parser {
     public static void event(TaskList tasks, String line) {
         String desc = line.substring(6);
         int separator1 = desc.indexOf("/");
+        if (separator1 == -1) {
+        }
         int separator2 = desc.indexOf("/", separator1 + 1);
         String name = desc.substring(0, separator1 - 1);
         String from = desc.substring(separator1 + 6, separator2 - 1);
@@ -55,7 +60,7 @@ public class Parser {
         System.out.println(tasks.get(tasks.size() - 1).printTask());
         Printer.taskCount(tasks.size());
         try {
-            int listSize = tasks.size(); //CHANGE
+            int listSize = tasks.size();
             Write.appendToFile(tasks.get(listSize - 1).printTask());
         } catch (IOException e) {
             System.out.println("ruh roh someing idnt rork");
