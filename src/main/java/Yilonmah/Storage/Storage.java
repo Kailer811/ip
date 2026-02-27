@@ -2,20 +2,25 @@ package Yilonmah.Storage;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Yilonmah.TaskList.*;
 import Yilonmah.err.YilonmahExceptions;
 import Yilonmah.err.ExceptionManager;
-import Yilonmah.TaskList.Task;
-import Yilonmah.TaskList.Todo;
-import Yilonmah.TaskList.Deadline;
-import Yilonmah.TaskList.Event;
 
 
-public class Read {
-	public static ArrayList<Task> initList() throws FileNotFoundException {
-		File f = new File("./data/yilonmah.txt");
+public class Storage {
+	private String filepath;
+
+	public Storage(String filepath) {
+		this.filepath = filepath;
+	}
+
+	public ArrayList<Task> load() throws FileNotFoundException {
+		File f = new File(filepath);
 		Scanner s = new Scanner(f);
 		ArrayList<Task> list = new ArrayList<>();
 		while (s.hasNext()) {
@@ -51,5 +56,17 @@ public class Read {
 			}
 		}
 		return list;
+	}
+	public void writeToFile(String textToAdd) throws IOException {
+		FileWriter fw = new FileWriter(filepath);
+		fw.write(textToAdd);
+		fw.close();
+	}
+
+	public void appendToFile(String textToAppend) throws IOException {
+		FileWriter fw = new FileWriter(filepath, true);
+		fw.write(textToAppend);
+		fw.write("\n");
+		fw.close();
 	}
 }

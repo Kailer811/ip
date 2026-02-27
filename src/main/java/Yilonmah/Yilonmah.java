@@ -2,131 +2,55 @@ package Yilonmah;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
+import Yilonmah.Parser.Parser;
+import Yilonmah.TaskList.*;
 import Yilonmah.err.ExceptionManager;
 import Yilonmah.err.YilonmahExceptions;
 import Yilonmah.Print.Printer;
-import Yilonmah.Storage.Read;
+import Yilonmah.Storage.Storage;
 import Yilonmah.Storage.Write;
-import Yilonmah.TaskList.Event;
-import Yilonmah.TaskList.Deadline;
-import Yilonmah.TaskList.Task;
-import Yilonmah.TaskList.Todo;
 
 public class Yilonmah {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        String line = "";
-        ArrayList<Task> list = new ArrayList<>();
-        Printer.opening();
+    private Storage storage;
+    private TaskList tasks;
+
+    public Yilonmah(String filepath) {
+        storage = new Storage(filepath);
         try {
-            Printer.loadingSave();
-            list = Read.initList();
-            Printer.saveLoaded();
+            tasks = new TaskList(storage.load());
         } catch (FileNotFoundException e) {
             System.out.println("file save not found, making a brand new save");
+            tasks = new TaskList();
         }
-        Printer.dash();
+    }
+
+    public void run() {
+        Scanner in = new Scanner(System.in);
+        String line = "";
+        Printer.opening();
         while (!line.equals("bye")) {
             line = in.nextLine();
             try {
-                if (line.equals("")) {
+                if (line.isEmpty()) {
                     throw new YilonmahExceptions.NoCommand();
                 } else if (line.equals("bye")) {
                     System.out.println("Bai Baiii");
                 } else if (line.equals("list")) {
-                    for (int i = 0; i < list.size(); i++) {
-                        System.out.println(list.get(i).printTask());
-                    }
-                    Printer.dash();
+                    Parser.list(tasks);
                 } else if (line.length() >= 7 && line.startsWith("unmark")) {
-                    int unmarkIdx = Integer.parseInt(line.substring(7));
-                    if (unmarkIdx > list.size() + 1) {
-                        throw new YilonmahExceptions.OutOfBounds();
-                    } else {
-                        list.get(unmarkIdx - 1).unmark();
-                        for (int i = 0; i < list.size(); i++) {
-                            try {
-                                Write.writeToFile(list.get(unmarkIdx - 1).printTask());
-                            } catch (IOException e) {
-                                System.out.println("ruh roh riting idnt rork");
-                            }
-                        }
-                        Printer.dash();
-                    }
+                    Parser.unmark(tasks, line);
                 } else if (line.length() > 5 && line.startsWith("mark")) {
-                    int markIdx = Integer.parseInt(line.substring(5));
-                    if (markIdx > list.size() + 1) {
-                        throw new YilonmahExceptions.OutOfBounds();
-                    } else {
-                        list.get(markIdx - 1).mark();
-                        for (int i = 0; i < list.size(); i++) {
-                            try {
-                                Write.writeToFile(list.get(markIdx - 1).printTask());
-                            } catch (IOException e) {
-                                System.out.println("ruh roh riting idnt rork");
-                            }
-                        }
-                        Printer.dash();
-                    }
+                    Parser.mark(tasks, line);
                 } else if (line.length() > 7 && line.startsWith("delete")) {
-                    int deleteIdx = Integer.parseInt(line.substring(7));
-                    if (deleteIdx > list.size() + 1) {
-                        throw new YilonmahExceptions.OutOfBounds();
-                    } else {
-                        System.out.print("alrightyy deleting: ");
-                        System.out.println(list.get(deleteIdx - 1).printTask());
-                        list.remove(deleteIdx - 1);
-                    }
-                    Printer.dash();
+                    Parser.mark(tasks, line);
                 } else if (line.length() > 5 && line.startsWith("todo")) {
-                    String desc = line.substring(5);
-                    list.add(new Todo(desc));
-                    Printer.taskAdded();
-                    System.out.println(list.get(list.size() - 1).printTask());
-                    Printer.listCount(list.size());
-                    try {
-                        int listSize = list.size();
-                        Write.appendToFile(list.get(listSize - 1).printTask());
-                    } catch (IOException e) {
-                        System.out.println("ruh roh someing idnt rork");
-                    }
-                    Printer.dash();
+                    Parser.todo(tasks, line);
                 } else if (line.length() > 8 && line.startsWith("deadline")) {
-                    String desc = line.substring(9);
-                    int separator = desc.indexOf("/");
-                    String name = desc.substring(0, separator - 1);
-                    String date = desc.substring(separator + 4);
-                    list.add(new Deadline(name, date));
-                    Printer.taskAdded();
-                    System.out.println(list.get(list.size() - 1).printTask());
-                    Printer.listCount(list.size());
-                    try {
-                        int listSize = list.size();
-                        Write.appendToFile(list.get(listSize - 1).printTask());
-                    } catch (IOException e) {
-                        System.out.println("ruh roh someing idnt rork");
-                    }
-                    Printer.dash();
+                    Parser.deadline(tasks, line);
                 } else if (line.length() > 6 && line.startsWith("event")) {
-                    String desc = line.substring(6);
-                    int separator1 = desc.indexOf("/");
-                    int separator2 = desc.indexOf("/", separator1 + 1);
-                    String name = desc.substring(0, separator1 - 1);
-                    String from = desc.substring(separator1 + 6, separator2 - 1);
-                    String by = desc.substring(separator2 + 4);
-                    list.add(new Event(name, from, by));
-                    Printer.taskAdded();
-                    System.out.println(list.get(list.size() - 1).printTask());
-                    try {
-                        int listSize = list.size();
-                        Write.appendToFile(list.get(listSize - 1).printTask());
-                    } catch (IOException e) {
-                        System.out.println("ruh roh someing idnt rork");
-                    }
-                    Printer.dash();
+                    Parser.event(tasks, line);
                 } else {
                     throw new YilonmahExceptions.WrongCommand();
                 }
@@ -135,4 +59,9 @@ public class Yilonmah {
             }
         }
     }
+
+    public static void main(String[] args) {
+        new Yilonmah("./data/yilonmah.txt").run();
+    }
+
 }

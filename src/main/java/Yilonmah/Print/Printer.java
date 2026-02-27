@@ -9,7 +9,7 @@ public class Printer {
 		System.out.println("Alrightt task has been added :>");
 	}
 
-	public static void listCount(int count) {
+	public static void taskCount(int count) {
 		System.out.println("You now have " + count + " tasks, upz lah");
 	}
 
