@@ -1,2 +1,3 @@
 [T][ ] urmother
-[E][ ] urdog (from: Feb 03 1111 to: May 06 4444)
+[E][ ] urdog (from: Feb 03 1111 to: May 06 4444))
+[D][ ] ursister (by: Feb 28 2026))

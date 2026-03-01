@@ -166,11 +166,17 @@ public class Parser {
             throw new YilonmahExceptions.MissingDescription();
         }
         String findFor = line.substring(5);
+        boolean isFound = false;
         for (int i = 0; i < tasks.size(); i++) {
             Task curr = tasks.get(i);
             if (curr.getName().contains(findFor)) {
-                curr.printTask();
+                System.out.println(curr.printTask());
+                isFound = true;
             }
         }
+        if (!isFound) {
+            System.out.println("no tasks were found containing: " + line);
+        }
+        Printer.dash();
     }
 }
