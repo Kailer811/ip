@@ -43,8 +43,8 @@ public class Yilonmah {
                     Parser.unmark(tasks, line);
                 } else if (line.length() > 5 && line.startsWith("mark")) {
                     Parser.mark(tasks, line);
-                } else if (line.length() > 7 && line.startsWith("delete")) {
-                    Parser.mark(tasks, line);
+                } else if (line.startsWith("delete")) {
+                    Parser.delete(tasks, line);
                 } else if (line.startsWith("todo")) {
                     Parser.todo(tasks, line);
                 } else if (line.length() > 9 && line.startsWith("deadline")) {
