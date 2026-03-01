@@ -2,6 +2,9 @@ package Yilonmah.TaskList;
 
 import java.util.ArrayList;
 
+/**
+ * Stores a dynamic array of all tasks in Yilonmah. Handles insertion and deletion of tasks as well
+ */
 public class TaskList {
     private ArrayList<Task> tasks;
 
@@ -26,6 +29,7 @@ public class TaskList {
             System.out.println(tasks.get(i).printTask());
         }
     }
+
     public int size() {
         return tasks.size();
     }

@@ -10,7 +10,6 @@ import Yilonmah.err.ExceptionManager;
 import Yilonmah.err.YilonmahExceptions;
 import Yilonmah.Print.Printer;
 import Yilonmah.Storage.Storage;
-import Yilonmah.Storage.Write;
 
 public class Yilonmah {
     private Storage storage;
@@ -26,6 +25,10 @@ public class Yilonmah {
         }
     }
 
+    /**
+     * Runs when jar file is launched. Ends only when user inputs bye, else it sweeps through each command,
+     * if user input is not recognised error is thrown.
+     */
     public void run() {
         Scanner in = new Scanner(System.in);
         String line = "";

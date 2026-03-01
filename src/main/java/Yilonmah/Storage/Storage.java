@@ -11,7 +11,10 @@ import Yilonmah.TaskList.*;
 import Yilonmah.err.YilonmahExceptions;
 import Yilonmah.err.ExceptionManager;
 
-
+/**
+ * Handles loading and saving of TaskList. Contents are written to ./data/yilonmah.txt.
+ * With assumption that code is launched from /ip dir
+ */
 public class Storage {
     private static String filepath = "./data/yilonmah.txt";
 
@@ -67,6 +70,12 @@ public class Storage {
         fw.close();
     }
 
+    /**
+     * rewrites the entire .txt file to the latest TaskList
+     *
+     * @param tasks
+     * @throws IOException if file unable to be written into
+     */
     public static void save(TaskList tasks) throws IOException {
         writeToFile("");
         for (int i = 0; i < tasks.size(); i++) {

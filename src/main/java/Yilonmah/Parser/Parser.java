@@ -13,6 +13,11 @@ import Yilonmah.TaskList.TaskList;
 import Yilonmah.TaskList.Todo;
 import Yilonmah.err.YilonmahExceptions;
 
+/**
+ * contains all the command functions that the user will use, throws exception when command is incorrect format or
+ * outOfBounds
+ */
+
 public class Parser {
 
     private static String dateFormat(String input) {
