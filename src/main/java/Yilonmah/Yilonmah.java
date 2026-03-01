@@ -16,8 +16,8 @@ public class Yilonmah {
     private Storage storage;
     private TaskList tasks;
 
-    public Yilonmah(String filepath) {
-        storage = new Storage(filepath);
+    public Yilonmah() {
+        storage = new Storage();
         try {
             tasks = new TaskList(storage.load());
         } catch (FileNotFoundException e) {
@@ -39,18 +39,20 @@ public class Yilonmah {
                     System.out.println("Bai Baiii");
                 } else if (line.equals("list")) {
                     Parser.list(tasks);
-                } else if (line.length() > 7 && line.startsWith("unmark")) {
+                } else if (line.startsWith("unmark")) {
                     Parser.unmark(tasks, line);
-                } else if (line.length() > 5 && line.startsWith("mark")) {
+                } else if (line.startsWith("mark")) {
                     Parser.mark(tasks, line);
                 } else if (line.startsWith("delete")) {
                     Parser.delete(tasks, line);
                 } else if (line.startsWith("todo")) {
                     Parser.todo(tasks, line);
-                } else if (line.length() > 9 && line.startsWith("deadline")) {
+                } else if (line.startsWith("deadline")) {
                     Parser.deadline(tasks, line);
-                } else if (line.length() > 6 && line.startsWith("event")) {
+                } else if (line.startsWith("event")) {
                     Parser.event(tasks, line);
+                } else if (line.startsWith("find")) {
+                    Parser.find(tasks, line);
                 } else {
                     throw new YilonmahExceptions.WrongCommand();
                 }
@@ -61,7 +63,8 @@ public class Yilonmah {
     }
 
     public static void main(String[] args) {
-        new Yilonmah("./data/yilonmah.txt").run();
+        Yilonmah thisYilonmah = new Yilonmah();
+        thisYilonmah.run();
     }
-
 }
+

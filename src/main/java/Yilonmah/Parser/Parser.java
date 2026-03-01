@@ -5,9 +5,10 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 import Yilonmah.Print.Printer;
-import Yilonmah.Storage.Write;
+import Yilonmah.Storage.Storage;
 import Yilonmah.TaskList.Deadline;
 import Yilonmah.TaskList.Event;
+import Yilonmah.TaskList.Task;
 import Yilonmah.TaskList.TaskList;
 import Yilonmah.TaskList.Todo;
 import Yilonmah.err.YilonmahExceptions;
@@ -41,7 +42,7 @@ public class Parser {
         Printer.taskCount(tasks.size());
         try {
             int listSize = tasks.size();
-            Write.appendToFile(tasks.get(listSize - 1).printTask());
+            Storage.appendToFile(tasks.get(listSize - 1).printTask());
         } catch (IOException e) {
             System.out.println("ruh roh someing idnt rork");
         }
@@ -67,7 +68,7 @@ public class Parser {
         System.out.println(tasks.get(tasks.size() - 1).printTask());
         try {
             int listSize = tasks.size();
-            Write.appendToFile(tasks.get(listSize - 1).printTask());
+            Storage.appendToFile(tasks.get(listSize - 1).printTask());
         } catch (IOException e) {
             System.out.println("ruh roh someing idnt rork");
         }
@@ -89,7 +90,7 @@ public class Parser {
         Printer.taskCount(tasks.size());
         try {
             int listSize = tasks.size();
-            Write.appendToFile(tasks.get(listSize - 1).printTask());
+            Storage.appendToFile(tasks.get(listSize - 1).printTask());
         } catch (IOException e) {
             System.out.println("ruh roh someing idnt rork");
         }
@@ -112,14 +113,11 @@ public class Parser {
             throw new YilonmahExceptions.OutOfBounds();
         } else {
             tasks.get(markIdx - 1).mark();
-            for (int i = 0; i < tasks.size(); i++) {
-                try {
-                    Write.writeToFile(tasks.get(markIdx - 1).printTask());
-                } catch (IOException e) {
-                    System.out.println("ruh roh riting idnt rork");
-                }
+            try {
+                Storage.save(tasks);
+            } catch (Exception e) {
+                System.out.println("ruh roh riting idnt rork");
             }
-            Printer.dash();
         }
     }
 
@@ -132,12 +130,10 @@ public class Parser {
             throw new YilonmahExceptions.OutOfBounds();
         } else {
             tasks.get(unmarkIdx - 1).unmark();
-            for (int i = 0; i < tasks.size(); i++) {
-                try {
-                    Write.writeToFile(tasks.get(unmarkIdx - 1).printTask());
-                } catch (IOException e) {
-                    System.out.println("ruh roh riting idnt rork");
-                }
+            try {
+                Storage.save(tasks);
+            } catch (Exception e) {
+                System.out.println("ruh roh riting idnt rork");
             }
             Printer.dash();
         }
@@ -156,7 +152,25 @@ public class Parser {
             System.out.print("alrightyy deleting: ");
             System.out.println(tasks.get(deleteIdx - 1).printTask());
             tasks.delete(deleteIdx - 1); //INCLUDE
+            try {
+                Storage.save(tasks);
+            } catch (Exception e) {
+                System.out.println("ruh roh riting idnt rork");
+            }
         }
         Printer.dash();
+    }
+
+    public static void find(TaskList tasks, String line) throws YilonmahExceptions.MissingDescription {
+        if (line.length() < 6) {
+            throw new YilonmahExceptions.MissingDescription();
+        }
+        String findFor = line.substring(5);
+        for (int i = 0; i < tasks.size(); i++) {
+            Task curr = tasks.get(i);
+            if (curr.getName().contains(findFor)) {
+                curr.printTask();
+            }
+        }
     }
 }
