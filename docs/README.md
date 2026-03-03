@@ -20,21 +20,24 @@ ____    ____  __      __        ______   .__   __.    .___  ___.      ___       
 ![image of the chinese knock off elon musk](https://d.techtimes.com/en/full/397890/elon-musk-meet-chinese-doppelganger-elon-musk-yilong-ma.png?w=630&f=c5c9641a5f199d338cef601693c13a64)
 
 I am a simple Command Line Interface (CLI) java executable !
+
 Just clone this repo and launch the jar file ./build/libs/yilonmah.jar
 
 ## Adding deadlines
 
-// Describe the action and its outcome.
+With me, YILONMAH!! you can add deadlines of tasks you need to do
 
-// Give examples of usage
+Example: `deadline go on a date w YILONMAH!! /by 2026-08-11`
 
-Example: `keyword (optional arguments)`
-
-// A description of the expected outcome goes here
+and BOOM !
 
 ```
-expected output
+Alrightt task has been added :>
+[D][ ] go on a date w YILONMAH!! (by: Aug 11 2026)
+You now have 4 tasks, upz lah
 ```
+
+Hella cool ammirite
 
 ## Feature ABC
 

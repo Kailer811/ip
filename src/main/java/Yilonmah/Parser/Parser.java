@@ -114,7 +114,7 @@ public class Parser {
             throw new YilonmahExceptions.MissingDescription();
         }
         int markIdx = Integer.parseInt(line.substring(5));
-        if (markIdx > tasks.size() + 1) {
+        if (markIdx > tasks.size()) {
             throw new YilonmahExceptions.OutOfBounds();
         } else {
             tasks.get(markIdx - 1).mark();
@@ -131,7 +131,7 @@ public class Parser {
             throw new YilonmahExceptions.MissingDescription();
         }
         int unmarkIdx = Integer.parseInt(line.substring(7));
-        if (unmarkIdx > tasks.size() + 1) {
+        if (unmarkIdx > tasks.size()) {
             throw new YilonmahExceptions.OutOfBounds();
         } else {
             tasks.get(unmarkIdx - 1).unmark();
