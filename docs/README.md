@@ -17,7 +17,7 @@ ____    ____  __      __        ______   .__   __.    .___  ___.      ___       
                                                                                                                                                                                                                                                                          
 ```
 
-![image of the chinese knock off elon musk](https://d.techtimes.com/en/full/397890/elon-musk-meet-chinese-doppelganger-elon-musk-yilong-ma.png?w=630&f=c5c9641a5f199d338cef601693c13a64)
+![image of the chinese knock off elon musk](./docs/yilonmah.png)
 
 I am a simple Command Line Interface (CLI) java executable !
 
