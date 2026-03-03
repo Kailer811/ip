@@ -54,7 +54,7 @@ public class Printer {
         System.out.println("mark x, marks task x on the tasklist");
         System.out.println("unmark x, unmarks task x on the tasklist");
         System.out.println("delete x, removes task x from the tasklist");
-        System.out.println("DATE should be in the format of yyyy-mm-dd")
+        System.out.println("DATE should be in the format of yyyy-mm-dd");
         Printer.dash();
     }
 }

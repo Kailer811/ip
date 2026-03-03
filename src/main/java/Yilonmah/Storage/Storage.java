@@ -20,6 +20,17 @@ public class Storage {
 
     public ArrayList<Task> load() throws FileNotFoundException {
         File f = new File(filepath);
+        if (!f.exists()) {
+            try {
+                f.getParentFile().mkdirs();
+                if (f.createNewFile()) {
+                    System.out.println("no save file found making one now");
+                    System.out.println("new save file has been made");
+                }
+            } catch (IOException e) {
+                System.out.println("error occurred when making file");
+            }
+        }
         Scanner s = new Scanner(f);
         ArrayList<Task> list = new ArrayList<>();
         while (s.hasNext()) {
