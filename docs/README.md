@@ -39,10 +39,12 @@ You now have 4 tasks, upz lah
 
 Hella cool ammirite
 
-## Feature ABC
+## File Save
 
-// Feature details
+Anything you tell me to do, I remember!
+Even when you close the application I will remember what you said when you open me again
 
-## Feature XYZ
+## Help !!
 
-// Feature details
+For details of all commands I am able to do just type help
+Commands are case-sensitive and dates are to be in the format of yyyy-mm-dd else my smooth brain will not understand

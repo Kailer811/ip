@@ -184,4 +184,8 @@ public class Parser {
         }
         Printer.dash();
     }
+
+    public static void help() {
+        Printer.help();
+    }
 }

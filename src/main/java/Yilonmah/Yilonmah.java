@@ -56,6 +56,8 @@ public class Yilonmah {
                     Parser.event(tasks, line);
                 } else if (line.startsWith("find")) {
                     Parser.find(tasks, line);
+                } else if (line.equals("help")) {
+                    Parser.help();
                 } else {
                     throw new YilonmahExceptions.WrongCommand();
                 }

@@ -44,4 +44,17 @@ public class Printer {
     public static void saveLoaded() {
         System.out.println("I REMEMBER EVERYTHINGG");
     }
+
+    public static void help() {
+        System.out.println("heres the list of commands that i understand :>");
+        System.out.println("list, list all tasks added");
+        System.out.println("todo DESC, creates a todo task of name DESC");
+        System.out.println("deadline DESC /by DATE, creates a deadline task of name DESC and by DATE");
+        System.out.println("event DESC /from DATE0 /to DATE1, creates a event task of name DESC and from DATE0 to DATE1");
+        System.out.println("mark x, marks task x on the tasklist");
+        System.out.println("unmark x, unmarks task x on the tasklist");
+        System.out.println("delete x, removes task x from the tasklist");
+        System.out.println("DATE should be in the format of yyyy-mm-dd")
+        Printer.dash();
+    }
 }
