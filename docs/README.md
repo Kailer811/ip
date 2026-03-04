@@ -34,7 +34,11 @@ ____    ____  __      __        ______   .__   __.
 
 I am a simple Command Line Interface (CLI) java executable !
 
-Just clone this repo and launch the jar file ./build/libs/yilonmah.jar
+Just clone this repo and launch the jar file in ./out/artifacts/ip_main_jar
+
+```
+java -jar yilonmah.jar
+```
 
 ## Adding deadlines
 
