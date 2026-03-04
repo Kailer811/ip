@@ -6,6 +6,10 @@ public class Todo extends Task {
         super(description);
     }
 
+    public Todo(String description, boolean isDone) {
+        super(description, isDone);
+    }
+
     /**
      * overrides the printTask function of Task to print out type as well
      */

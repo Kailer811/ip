@@ -153,18 +153,18 @@ public class Parser {
         }
         try {
             int markIdx = Integer.parseInt(line.substring(5));
+            if (markIdx > tasks.size()) {
+                throw new YilonmahExceptions.OutOfBounds();
+            } else {
+                tasks.get(markIdx - 1).mark();
+                try {
+                    Storage.save(tasks);
+                } catch (Exception e) {
+                    System.out.println("ruh roh riting idnt rork");
+                }
+            }
         } catch (NumberFormatException e) {
             System.out.println("ayyo mb fam input which task number uw me to mark");
-        }
-        if (markIdx > tasks.size()) {
-            throw new YilonmahExceptions.OutOfBounds();
-        } else {
-            tasks.get(markIdx - 1).mark();
-            try {
-                Storage.save(tasks);
-            } catch (Exception e) {
-                System.out.println("ruh roh riting idnt rork");
-            }
         }
     }
 
@@ -182,19 +182,19 @@ public class Parser {
         }
         try {
             int unmarkIdx = Integer.parseInt(line.substring(7));
-        } catch (NumberFormatException e) {
-            System.out.println("ayyo mb fam input which task number uw me to unmark");
-        }
-        if (unmarkIdx > tasks.size()) {
-            throw new YilonmahExceptions.OutOfBounds();
-        } else {
-            tasks.get(unmarkIdx - 1).unmark();
-            try {
-                Storage.save(tasks);
-            } catch (Exception e) {
-                System.out.println("ruh roh riting idnt rork");
+            if (unmarkIdx > tasks.size()) {
+                throw new YilonmahExceptions.OutOfBounds();
+            } else {
+                tasks.get(unmarkIdx - 1).unmark();
+                try {
+                    Storage.save(tasks);
+                } catch (Exception e) {
+                    System.out.println("ruh roh riting idnt rork");
+                }
             }
             Printer.dash();
+        } catch (NumberFormatException e) {
+            System.out.println("ayyo mb fam input which task number uw me to unmark");
         }
     }
 

@@ -41,6 +41,7 @@ public class Storage {
         }
         Scanner s = new Scanner(f);
         ArrayList<Task> list = new ArrayList<>();
+        Boolean isDone = false;
         while (s.hasNext()) {
             String line = s.nextLine();
             char c = line.charAt(1);
@@ -48,14 +49,16 @@ public class Storage {
                 switch (c) {
                 case 'T':
                     String desc = line.substring(7);
-                    list.add(new Todo(desc));
+                    isDone = checkIsDone(line);
+                    list.add(new Todo(desc, isDone));
                     break;
                 case 'D':
                     desc = line.substring(7);
                     int separator = desc.indexOf(":");
                     String name = desc.substring(0, separator - 4);
-                    String date = desc.substring(separator + 2);
-                    list.add(new Deadline(name, date));
+                    String date = desc.substring(separator + 2, line.length() - 2);
+                    isDone = checkIsDone(line);
+                    list.add(new Deadline(name, date, isDone));
                     break;
                 case 'E':
                     desc = line.substring(7);
@@ -63,8 +66,9 @@ public class Storage {
                     int separator2 = desc.indexOf(":", separator1 + 1);
                     name = desc.substring(0, separator1 - 6);
                     String from = desc.substring(separator1 + 2, separator2 - 3);
-                    String by = desc.substring(separator2 + 2);
-                    list.add(new Event(name, from, by));
+                    String by = desc.substring(separator2 + 2, line.length() - 2);
+                    isDone = checkIsDone(line);
+                    list.add(new Event(name, from, by, isDone));
                     break;
                 default:
                     throw new YilonmahExceptions.FileCorrupted();
@@ -74,6 +78,11 @@ public class Storage {
             }
         }
         return list;
+    }
+
+    private Boolean checkIsDone(String line) {
+        char isDone = line.charAt(4);
+        return isDone == 'X';
     }
 
     public static void writeToFile(String textToAdd) throws IOException {

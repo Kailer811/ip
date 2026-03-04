@@ -8,6 +8,11 @@ public class Event extends Deadline {
         this.from = from;
     }
 
+    public Event(String name, String from, String by, Boolean isDone) {
+        super(name, by, isDone);
+        this.from = from;
+    }
+
     public String getFrom() {
         return this.from;
     }
