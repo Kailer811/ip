@@ -14,6 +14,10 @@ public class Yilonmah {
     private Storage storage;
     private TaskList tasks;
 
+    /**
+     * initialises storage to read and write to data/yilonmah.txt
+     * tasks then loads its array list from yilonmah.txt, if no file found, it makes an empty array list
+     */
     public Yilonmah() {
         storage = new Storage();
         try {

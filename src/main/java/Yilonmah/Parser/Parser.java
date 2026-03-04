@@ -19,7 +19,13 @@ import Yilonmah.err.YilonmahExceptions;
  */
 
 public class Parser {
-
+    /**
+     * converts any dates from yyyy-MM-dd to MMM dd yyyy
+     * checks if format is correct if input format is not correct it just returns the inputted string
+     *
+     * @param input string in the format of yyyy-MM-dd
+     * @return dateformat string in the format of MMM dd yyyy
+     */
     private static String dateFormat(String input) {
         DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("MMM dd yyyy");
@@ -36,6 +42,14 @@ public class Parser {
         return formattedDate;
     }
 
+    /**
+     * finds the description of todo from line
+     * adds it to tail end of tasks
+     *
+     * @param tasks the TaskList that yilonmah reads from
+     * @param line  input string containing the todo description
+     * @throws YilonmahExceptions.MissingDescription thrown when user inputs todo without anything
+     */
     public static void todo(TaskList tasks, String line) throws YilonmahExceptions.MissingDescription {
         if (line.length() < 6) {
             throw new YilonmahExceptions.MissingDescription();
@@ -54,6 +68,14 @@ public class Parser {
         Printer.dash();
     }
 
+    /**
+     * finds the description and date range of event from line
+     * adds it to tail end of tasks
+     *
+     * @param tasks the TaskList that yilonmah reads from
+     * @param line  input string containing the event description and date range
+     * @throws YilonmahExceptions.MissingDescription thrown when user inputs event without anything else
+     */
     public static void event(TaskList tasks, String line) throws YilonmahExceptions.MissingDescription {
         if (line.length() < 7) {
             throw new YilonmahExceptions.MissingDescription();
@@ -80,6 +102,14 @@ public class Parser {
         Printer.dash();
     }
 
+    /**
+     * finds the description and due date of deadline from line
+     * adds it to tail end of tasks
+     *
+     * @param tasks the TaskList that yilonmah reads from
+     * @param line  input string containing the deadline description and due date
+     * @throws YilonmahExceptions.MissingDescription thrown when user inputs event without anything else
+     */
     public static void deadline(TaskList tasks, String line) throws YilonmahExceptions.MissingDescription {
         if (line.length() < 10) {
             throw new YilonmahExceptions.MissingDescription();
@@ -109,6 +139,14 @@ public class Parser {
         Printer.dash();
     }
 
+    /**
+     * checks which task is to be marked, and updates tasks
+     *
+     * @param tasks the TaskList that yilonmah reads from
+     * @param line  contains which task to be marked as done
+     * @throws YilonmahExceptions.OutOfBounds        if marked task is less or more than the taskslist err is thrown
+     * @throws YilonmahExceptions.MissingDescription thrown when user inputs event without anything else
+     */
     public static void mark(TaskList tasks, String line) throws YilonmahExceptions.OutOfBounds, YilonmahExceptions.MissingDescription {
         if (line.length() < 6) {
             throw new YilonmahExceptions.MissingDescription();
@@ -126,6 +164,14 @@ public class Parser {
         }
     }
 
+    /**
+     * checks which task is to be unmarked, and updates tasks
+     *
+     * @param tasks the TaskList that yilonmah reads from
+     * @param line  contains which task to be unmarked as not done
+     * @throws YilonmahExceptions.OutOfBounds        if unmarked task is less or more than the taskslist err is thrown
+     * @throws YilonmahExceptions.MissingDescription thrown when user inputs event without anything else
+     */
     public static void unmark(TaskList tasks, String line) throws YilonmahExceptions.OutOfBounds, YilonmahExceptions.MissingDescription {
         if (line.length() < 8) {
             throw new YilonmahExceptions.MissingDescription();
@@ -144,6 +190,14 @@ public class Parser {
         }
     }
 
+    /**
+     * checks which task is to be deleted, and removes it from tasks
+     *
+     * @param tasks the TaskList that yilonmah reads from
+     * @param line  contains which task to be deleted
+     * @throws YilonmahExceptions.OutOfBounds        if deleted task is less or more than the taskslist err is thrown
+     * @throws YilonmahExceptions.MissingDescription thrown when user inputs event without anything else
+     */
     public static void delete(TaskList tasks, String line) throws YilonmahExceptions.OutOfBounds, YilonmahExceptions.MissingDescription {
         if (line.length() < 8) {
             throw new YilonmahExceptions.MissingDescription();
@@ -166,6 +220,15 @@ public class Parser {
         Printer.dash();
     }
 
+    /**
+     * sweeps through task list and finds any task description that contains the findFor
+     * if found, task is printed
+     * else notifies user no task was found
+     *
+     * @param tasks the list of tasks yilonmah remembers
+     * @param line  contains "find NAME" where NAME is task we are searching for
+     * @throws YilonmahExceptions.MissingDescription
+     */
     public static void find(TaskList tasks, String line) throws YilonmahExceptions.MissingDescription {
         if (line.length() < 6) {
             throw new YilonmahExceptions.MissingDescription();

@@ -6,6 +6,9 @@ public class Todo extends Task {
         super(description);
     }
 
+    /**
+     * overrides the printTask function of Task to print out type as well
+     */
     @Override
     public String printTask() {
         if (this.getIsDone()) {

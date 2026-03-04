@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Stores a dynamic array of all tasks in Yilonmah. Handles insertion and deletion of tasks as well
+ * 2 types of constructors, for if there is loaded data or none
  */
 public class TaskList {
     private ArrayList<Task> tasks;
