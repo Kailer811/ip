@@ -49,6 +49,7 @@ public class Printer {
                 """;
         System.out.println(logo);
         System.out.println("What can I do for you?");
+        System.out.println("type 'help' for list of commands");
         Printer.dash();
     }
 

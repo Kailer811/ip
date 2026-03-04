@@ -151,7 +151,11 @@ public class Parser {
         if (line.length() < 6) {
             throw new YilonmahExceptions.MissingDescription();
         }
-        int markIdx = Integer.parseInt(line.substring(5));
+        try {
+            int markIdx = Integer.parseInt(line.substring(5));
+        } catch (NumberFormatException e) {
+            System.out.println("ayyo mb fam input which task number uw me to mark");
+        }
         if (markIdx > tasks.size()) {
             throw new YilonmahExceptions.OutOfBounds();
         } else {
@@ -176,7 +180,11 @@ public class Parser {
         if (line.length() < 8) {
             throw new YilonmahExceptions.MissingDescription();
         }
-        int unmarkIdx = Integer.parseInt(line.substring(7));
+        try {
+            int unmarkIdx = Integer.parseInt(line.substring(7));
+        } catch (NumberFormatException e) {
+            System.out.println("ayyo mb fam input which task number uw me to unmark");
+        }
         if (unmarkIdx > tasks.size()) {
             throw new YilonmahExceptions.OutOfBounds();
         } else {
