@@ -211,19 +211,22 @@ public class Parser {
             throw new YilonmahExceptions.MissingDescription();
         }
         String delete = line.substring(7);
-        System.out.println(delete);
-        int deleteIdx = Integer.parseInt(line.substring(7));
-        if (deleteIdx > tasks.size() + 1) {
-            throw new YilonmahExceptions.OutOfBounds();
-        } else {
-            System.out.print("alrightyy deleting: ");
-            System.out.println(tasks.get(deleteIdx - 1).printTask());
-            tasks.delete(deleteIdx - 1); //INCLUDE
-            try {
-                Storage.save(tasks);
-            } catch (Exception e) {
-                System.out.println("ruh roh riting idnt rork");
+        try {
+            int deleteIdx = Integer.parseInt(line.substring(7));
+            if (deleteIdx > tasks.size()) {
+                throw new YilonmahExceptions.OutOfBounds();
+            } else {
+                System.out.print("alrightyy deleting: ");
+                System.out.println(tasks.get(deleteIdx - 1).printTask());
+                tasks.delete(deleteIdx - 1); //INCLUDE
+                try {
+                    Storage.save(tasks);
+                } catch (Exception e) {
+                    System.out.println("ruh roh riting idnt rork");
+                }
             }
+        } catch (NumberFormatException e) {
+            System.out.println("ayyo mb fam input which task number uw me to delete");
         }
         Printer.dash();
     }

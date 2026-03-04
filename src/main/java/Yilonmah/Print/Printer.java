@@ -63,6 +63,7 @@ public class Printer {
 
     public static void help() {
         System.out.println("heres the list of commands that i understand :>");
+        System.out.println("bye, ends session w me, hope to see you soon :<");
         System.out.println("list, list all tasks added");
         System.out.println("todo DESC, creates a todo task of name DESC");
         System.out.println("deadline DESC /by DATE, creates a deadline task of name DESC and by DATE");
