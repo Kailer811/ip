@@ -34,7 +34,7 @@ ____    ____  __      __        ______   .__   __.
 
 I am a simple Command Line Interface (CLI) java executable !
 
-Just clone this repo and launch the jar file in ./out/artifacts/ip_main_jar
+Just clone this repo and launch the jar file in ./out/artifacts/yilonmah
 
 ```
 java -jar yilonmah.jar
