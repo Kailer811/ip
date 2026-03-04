@@ -17,6 +17,9 @@ public class Deadline extends Task {
         return by;
     }
 
+    /**
+     * overrides the printTask function of Task to print out type and getBy as well
+     */
     @Override
     public String printTask() {
         if (this.getIsDone()) {

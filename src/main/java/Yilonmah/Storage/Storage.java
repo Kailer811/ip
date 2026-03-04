@@ -12,12 +12,20 @@ import Yilonmah.err.YilonmahExceptions;
 import Yilonmah.err.ExceptionManager;
 
 /**
- * Handles loading and saving of TaskList. Contents are written to ./data/yilonmah.txt.
+ * Handles loading and saving of TaskList. Contents are written to ./data/yilonmah.txt
  * With assumption that code is launched from /ip dir
  */
 public class Storage {
     private static String filepath = "./data/yilonmah.txt";
 
+    /**
+     * checks if file yilonmah.txt exist in ./data. If it does not, create one
+     * It then reads each line of the text file checks the task type, desc, date and adds it to the array list
+     * Once the whole file is read it return the ArrayList with each task listed
+     *
+     * @return ArrayList<Task>
+     * @throws FileNotFoundException if file is not found
+     */
     public ArrayList<Task> load() throws FileNotFoundException {
         File f = new File(filepath);
         if (!f.exists()) {
@@ -84,7 +92,7 @@ public class Storage {
     /**
      * rewrites the entire .txt file to the latest TaskList
      *
-     * @param tasks
+     * @param tasks the task list that yilonmah reads from
      * @throws IOException if file unable to be written into
      */
     public static void save(TaskList tasks) throws IOException {

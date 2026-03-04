@@ -1,5 +1,8 @@
 package Yilonmah.err;
 
+/**
+ * all yilonmah custom exceptions are defined here
+ */
 public class YilonmahExceptions extends Exception {
 
     public static class NoCommand extends YilonmahExceptions {

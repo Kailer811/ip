@@ -3,6 +3,11 @@ package Yilonmah.err;
 import Yilonmah.Print.Printer;
 
 public class ExceptionManager {
+    /**
+     * takes in an exception e, checks what type of exception it is and prints out the err msg for user
+     *
+     * @param e exception being checked for
+     */
     public static void handleException(YilonmahExceptions e) {
         Printer.dash();
         if (e instanceof YilonmahExceptions.NoCommand) {
