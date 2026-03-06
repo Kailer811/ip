@@ -42,10 +42,8 @@ java -jar yilonmah.jar
 
 ## Adding deadlines
 
-With me, YILONMAH!! you can add deadlines of tasks you need to do
-
-Example: `deadline go on a date w YILONMAH!! /by 2026-08-11`
-
+With me, YILONMAH!! you can add deadlines of tasks you need to do  
+Example: `deadline go on a date w YILONMAH!! /by 2026-08-11`  
 and BOOM !
 
 ```
@@ -58,13 +56,17 @@ Hella cool ammirite
 
 ## File Save
 
-Anything you tell me to do, I remember!
+Anything you tell me to do, I remember automatically! No need to type save or load  
 Even when you close the application I will remember what you said when you open me again
 
 ## Help !!
 
-For details of all commands I am able to do just type help
-
-Commands are case-sensitive
-
+For details on all commands just type `help`  
+and I will list all my commands and parameters of them  
+Commands are case-sensitive, so do leave them in lower caps :>  
 Dates are to be in the format of yyyy-mm-dd else my smooth brain will not understand
+
+## Feedback
+
+This is still a work in progress project, do feel free to submit bugs reports  
+and I will amend them ASAP
