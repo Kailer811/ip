@@ -56,7 +56,7 @@ public class Storage {
                     desc = line.substring(7);
                     int separator = desc.indexOf(":");
                     String name = desc.substring(0, separator - 4);
-                    String date = desc.substring(separator + 2, desc.length() - 2);
+                    String date = desc.substring(separator + 2, desc.length() - 1);
                     isDone = checkIsDone(line);
                     list.add(new Deadline(name, date, isDone));
                     break;
@@ -66,7 +66,7 @@ public class Storage {
                     int separator2 = desc.indexOf(":", separator1 + 1);
                     name = desc.substring(0, separator1 - 6);
                     String from = desc.substring(separator1 + 2, separator2 - 3);
-                    String by = desc.substring(separator2 + 2, desc.length() - 2);
+                    String by = desc.substring(separator2 + 2, desc.length() - 1);
                     isDone = checkIsDone(line);
                     list.add(new Event(name, from, by, isDone));
                     break;
