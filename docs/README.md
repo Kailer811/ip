@@ -34,7 +34,7 @@ ____    ____  __      __        ______   .__   __.
 
 I am a simple Command Line Interface (CLI) java executable !
 
-Just clone this repo and launch the jar file in ./out/artifacts/yilonmah
+Just download the latest release file in this github repo and run the file with the command below
 
 ```
 java -jar yilonmah.jar
